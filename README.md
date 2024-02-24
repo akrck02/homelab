@@ -10,12 +10,12 @@ That's why in January 2023 I build a machine capable of running VM's, dockerized
 
 | CPU  | RAM | STORAGE |
 |--|--|--|
-|Ryzen 5 5600G 4.4GHz | 16GB DDR4 3200MHz | 500GB Nvme / 4TB HDD / 4TB HDD |
+|Ryzen 5 5600G 4.4GHz | 16GB DDR4 3200MHz | 500GB NVME / 4TB HDD / 4TB HDD |
 
 ![specs](./docs/resources/specs.png)
 
 ## Is this a remake (?) 
-I learned a lot about deploying applications and sharing and serving data, but later on I decided to switch from a regular [Ubuntu 22.04](https://releases.ubuntu.com/jammy/) to [Fedora server 39](https://releases.ubuntu.com/jammy/).
+I learned a lot about deploying applications and sharing and serving data, but later on I decided to switch from a regular [Ubuntu](https://releases.ubuntu.com/) to [Fedora server](https://releases.ubuntu.com/jammy/).
 
 I really like fedora's simplistic and stable approach to the linux OS, I use it in all my computers to work as a software developer and I also started using it as a gaming OS in a separate Nvme on my main rig, so I was tempted by the idea of changing the OS from my server to a much stable and server focused one (I was using regular ubuntu at first instead of ubuntu server). 
 
@@ -23,5 +23,7 @@ This decision was also boosted by the power and resource consumption, so I clear
 
 
 
+
+[Installing OS](./docs/1.OS.md)
 
 
