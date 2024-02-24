@@ -26,4 +26,10 @@ This decision was also boosted by the power and resource consumption, so I clear
 
 [Installing OS](./docs/1.OS.md)
 
+[SSH](./docs/2.ssh.md)
+
+[ZSH](./docs/3.zsh.md)
+
+[Docker](./docs/4.docker.md)
+
 
