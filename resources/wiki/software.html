@@ -1,0 +1,139 @@
+<h1 id="software-services">Software &amp; Services</h1>
+
+<p>All services run as Docker containers on <code>fuyu</code>, managed by <strong>Arcane</strong> (Docker Compose stack manager, port 3552). CasaOS (port 81) provides host-level management.</p>
+
+<hr>
+
+<h2 id="system-administration">System Administration</h2>
+
+<h3 id="casaos-localhost-81">CasaOS — <code>localhost:81</code></h3>
+
+<p>Host-level dashboard. Provides a web UI to monitor system resources (CPU, RAM, disk), manage apps, and configure the server. It&rsquo;s the entry point for managing fuyu itself.</p>
+
+<h3 id="arcane-localhost-3552">Arcane — <code>localhost:3552</code></h3>
+
+<p>Docker Compose stack manager. Used to deploy, configure, and manage all containerized services. Think of it as a self-hosted Portainer alternative with a Compose-centric workflow.</p>
+
+<hr>
+
+<h2 id="software-development">Software Development</h2>
+
+<h3 id="gitea-localhost-3002">Gitea — <code>localhost:3002</code></h3>
+
+<p>Self-hosted Git service. Stores and manages private code repositories. Provides a GitHub-like UI with issues, pull requests, and CI hooks.</p>
+
+<hr>
+
+<h2 id="private-cloud">Private Cloud</h2>
+
+<h3 id="nextcloud-localhost-3333">Nextcloud — <code>localhost:3333</code></h3>
+
+<p>Self-hosted file storage and sync (Google Drive alternative). Supports file sharing, calendar, contacts, and mobile clients.</p>
+
+<h3 id="jellyfin-localhost-8096">Jellyfin — <code>localhost:8096</code></h3>
+
+<p>Media streaming server (Plex/Netflix alternative). Organizes and streams movies, TV shows, and music to any device on the network (or remotely).</p>
+
+<hr>
+
+<h2 id="backup">Backup</h2>
+
+<h3 id="syncthing-localhost-8384">Syncthing — <code>localhost:8384</code></h3>
+
+<p>Peer-to-peer file synchronization between devices (phone, laptop, server). No cloud intermediary — syncs directly over LAN or the internet.</p>
+
+<h3 id="rclone-localhost-5572">RClone — <code>localhost:5572</code></h3>
+
+<p>Offsite backup to Google Drive (and other cloud providers). The web UI allows managing sync jobs and checking backup status. Protects against local drive failure.</p>
+
+<hr>
+
+<h2 id="monitoring">Monitoring</h2>
+
+<h3 id="uptime-kuma-localhost-3001">Uptime Kuma — <code>localhost:3001</code></h3>
+
+<p>Service uptime monitor. Checks that each service is reachable and alerts on downtime. Acts as an internal status page.</p>
+
+<h3 id="prometheus-localhost-9999">Prometheus — <code>localhost:9999</code></h3>
+
+<p>Metrics collector. Scrapes system and container metrics at regular intervals and stores them as time-series data.</p>
+
+<h3 id="grafana-localhost-3010">Grafana — <code>localhost:3010</code></h3>
+
+<p>Metrics visualization. Reads from Prometheus and renders dashboards for CPU, memory, network, disk, and container stats.</p>
+
+<blockquote>
+<p><strong>Stack</strong>: Prometheus collects → Grafana visualizes → Uptime Kuma alerts.</p>
+</blockquote>
+
+<hr>
+
+<h2 id="networking">Networking</h2>
+
+<h3 id="adguard-home-localhost-1080">AdGuard Home — <code>localhost:1080</code></h3>
+
+<p>Network-wide DNS resolver and ad blocker. Acts as the local DNS server, blocking ads and trackers for all devices on the LAN.</p>
+
+<hr>
+
+<h2 id="download-automation">Download Automation</h2>
+
+<p>A full <em>arr</em> stack for automating media acquisition. The flow is:</p>
+
+<p>Seerr (request) → Sonarr/Radarr (search) → Prowlarr (indexers) → qBittorrent (download) → Bazarr (subtitles)</p>
+
+<table>
+<thead>
+<tr>
+<th>Service</th>
+<th>Port</th>
+<th>Role</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><strong>Seerr</strong></td>
+<td>5055</td>
+<td>Request UI — users submit movie/show requests</td>
+</tr>
+
+<tr>
+<td><strong>Sonarr</strong></td>
+<td>8989</td>
+<td>TV show automation — monitors RSS, grabs episodes</td>
+</tr>
+
+<tr>
+<td><strong>Radarr</strong></td>
+<td>7878</td>
+<td>Movie automation — same as Sonarr but for films</td>
+</tr>
+
+<tr>
+<td><strong>Prowlarr</strong></td>
+<td>9696</td>
+<td>Indexer manager — connects Sonarr/Radarr to torrent/NZB sources</td>
+</tr>
+
+<tr>
+<td><strong>Bazarr</strong></td>
+<td>6767</td>
+<td>Subtitle automation — downloads subtitles for existing media</td>
+</tr>
+
+<tr>
+<td><strong>qBittorrent</strong></td>
+<td>8080</td>
+<td>Torrent client — handles the actual downloading</td>
+</tr>
+</tbody>
+</table>
+
+<hr>
+
+<h2 id="game-servers">Game Servers</h2>
+
+<h3 id="dockercraft-minecraft">Dockercraft (Minecraft)</h3>
+
+<p>Minecraft-as-a-service container. Spins up a Minecraft server instance. Port is assigned dynamically per instance.</p>

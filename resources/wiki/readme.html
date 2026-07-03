@@ -1,0 +1,182 @@
+<h1 id="homelab-documentation">Homelab Documentation</h1>
+
+<blockquote>
+<p>Personal homelab running self-hosted services for development, media, backups, and automation.</p>
+</blockquote>
+
+<h2 id="architecture-overview">Architecture Overview</h2>
+
+<p>┌─────────────────────────────────────────────────────-─────────┐
+│                     fuyu (Local IP)                           │
+│                AMD Ryzen 5 5600G · 32 GiB RAM                 │
+│                                                               │
+│   ┌──────────────────────────────────────────────────────┐    │
+│   │               Proxmox VE  (Debian 12)                │    │
+│   │                                                      │    │
+│   │   ┌──────────────────────────────────────────────┐   │    │
+│   │   │   CasaOS  (host UI · :81)                    │   │    │
+│   │   └──────────────────────────────────────────────┘   │    │
+│   │                                                      │    │
+│   │   ┌──────────────────────────────────────────────┐   │    │
+│   │   │   Arcane  (Docker stack mgmt · :3552)        │   │    │
+│   │   │                                              │   │    │
+│   │   │  [gitea] [jellyfin] [sonarr] [grafana] …     │   │    │
+│   │   └──────────────────────────────────────────────┘   │    │
+│   └──────────────────────────────────────────────────────┘    │
+│                                                               │
+│       - NVMe 500GB  /              (Proxmox OS)               │
+│       - SSD  1TB    /media/services (service data)            │
+│       - SSD  500GB  /media/backup   (backups)                 │
+└────────────────────────────────────────────────────────────-──┘</p>
+
+<p><strong>fuyu</strong> is the single physical server running <strong>Proxmox VE</strong> on bare metal. <strong>CasaOS</strong> provides a host-level management UI, and <strong>Arcane</strong> manages all Docker Compose stacks. Service data lives on a dedicated 1 TB SSD; backups go to a separate 500 GB SSD and Google Drive.</p>
+
+<h2 id="docs">Docs</h2>
+
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><a href="./hardware.md">hardware.md</a></td>
+<td>Physical hardware specs</td>
+</tr>
+
+<tr>
+<td><a href="./software.md">software.md</a></td>
+<td>All running services by category</td>
+</tr>
+
+<tr>
+<td><a href="./backup.md">backup.md</a></td>
+<td>Backup schedules and routines</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="quick-service-reference">Quick Service Reference</h2>
+
+<table>
+<thead>
+<tr>
+<th>Service</th>
+<th>Port</th>
+<th>Category</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>CasaOS</td>
+<td>81</td>
+<td>System</td>
+</tr>
+
+<tr>
+<td>Arcane</td>
+<td>3552</td>
+<td>System</td>
+</tr>
+
+<tr>
+<td>Gitea</td>
+<td>3002</td>
+<td>Dev</td>
+</tr>
+
+<tr>
+<td>Nextcloud</td>
+<td>3333</td>
+<td>Cloud</td>
+</tr>
+
+<tr>
+<td>Jellyfin</td>
+<td>8096</td>
+<td>Media</td>
+</tr>
+
+<tr>
+<td>Uptime Kuma</td>
+<td>3001</td>
+<td>Monitoring</td>
+</tr>
+
+<tr>
+<td>Grafana</td>
+<td>3010</td>
+<td>Monitoring</td>
+</tr>
+
+<tr>
+<td>Prometheus</td>
+<td>9999</td>
+<td>Monitoring</td>
+</tr>
+
+<tr>
+<td>AdGuard Home</td>
+<td>1080</td>
+<td>Networking</td>
+</tr>
+
+<tr>
+<td>Syncthing</td>
+<td>8384</td>
+<td>Backup</td>
+</tr>
+
+<tr>
+<td>RClone</td>
+<td>5572</td>
+<td>Backup</td>
+</tr>
+
+<tr>
+<td>Seerr</td>
+<td>5055</td>
+<td>Downloads</td>
+</tr>
+
+<tr>
+<td>qBittorrent</td>
+<td>8080</td>
+<td>Downloads</td>
+</tr>
+
+<tr>
+<td>Sonarr</td>
+<td>8989</td>
+<td>Downloads</td>
+</tr>
+
+<tr>
+<td>Radarr</td>
+<td>7878</td>
+<td>Downloads</td>
+</tr>
+
+<tr>
+<td>Prowlarr</td>
+<td>9696</td>
+<td>Downloads</td>
+</tr>
+
+<tr>
+<td>Bazarr</td>
+<td>6767</td>
+<td>Downloads</td>
+</tr>
+
+<tr>
+<td>Dockercraft</td>
+<td>—</td>
+<td>Gaming</td>
+</tr>
+</tbody>
+</table>

@@ -1,0 +1,37 @@
+<h1 id="backup-schedule">Backup Schedule</h1>
+
+<p>The following automated routines handle data redundancy and remote syncing:</p>
+
+<table>
+<thead>
+<tr>
+<th>Time (Daily)</th>
+<th>Command / Action</th>
+<th>Target</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><strong>03:00 AM</strong></td>
+<td><code>rclone</code></td>
+<td><code>/media/services</code> ➔ Google Drive</td>
+<td>Offsite cloud mirror of service configurations</td>
+</tr>
+
+<tr>
+<td><strong>04:00 AM</strong></td>
+<td><code>rsync</code></td>
+<td><code>/media/services</code> ➔ <code>/media/backup</code></td>
+<td>Local cross-drive backup snapshot</td>
+</tr>
+
+<tr>
+<td><strong>05:00 AM</strong></td>
+<td>Custom Sync</td>
+<td>GitHub ➔ Gitea</td>
+<td>Mirrored backup of external code repositories</td>
+</tr>
+</tbody>
+</table>

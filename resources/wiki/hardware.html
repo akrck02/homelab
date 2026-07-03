@@ -1,0 +1,102 @@
+<h1 id="hardware">Hardware</h1>
+
+<h2 id="fuyu">fuyu</h2>
+
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Details</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><strong>CPU</strong></td>
+<td>AMD Ryzen 5 5600G (12 threads) @ 4.46 GHz</td>
+</tr>
+
+<tr>
+<td><strong>GPU</strong></td>
+<td>AMD Radeon Vega Series (integrated)</td>
+</tr>
+
+<tr>
+<td><strong>RAM</strong></td>
+<td>32 GiB DDR4</td>
+</tr>
+
+<tr>
+<td><strong>Swap</strong></td>
+<td>8 GiB</td>
+</tr>
+
+<tr>
+<td><strong>OS</strong></td>
+<td>Proxmox VE on Debian 12 (Bookworm) x86_64</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="storage">Storage</h2>
+
+<table>
+<thead>
+<tr>
+<th>Disk</th>
+<th>Type</th>
+<th>Size</th>
+<th>Mount</th>
+<th>Purpose</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Crucial NVMe</td>
+<td>NVMe SSD</td>
+<td>500 GB</td>
+<td><code>/</code></td>
+<td>Proxmox OS + system</td>
+</tr>
+
+<tr>
+<td>Crucial SATA</td>
+<td>SATA SSD</td>
+<td>1 TB</td>
+<td><code>/media/services</code></td>
+<td>All Docker service data</td>
+</tr>
+
+<tr>
+<td>Kingston SATA</td>
+<td>SATA SSD</td>
+<td>500 GB</td>
+<td><code>/media/backup</code></td>
+<td>Backups (Syncthing, RClone)</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="network">Network</h2>
+
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Value</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Hostname</td>
+<td><code>fuyu</code></td>
+</tr>
+
+<tr>
+<td>DNS</td>
+<td>AdGuard Home (port 1080) — handles LAN DNS and ad-blocking</td>
+</tr>
+</tbody>
+</table>
