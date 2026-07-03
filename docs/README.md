@@ -4,28 +4,28 @@
 
 ## Architecture Overview
 
-┌─────────────────────────────────────────────────────-─────────┐
-│                     fuyu (Local IP)                           │
-│                AMD Ryzen 5 5600G · 32 GiB RAM                 │
-│                                                               │
-│   ┌──────────────────────────────────────────────────────┐    │
-│   │               Proxmox VE  (Debian 12)                │    │
-│   │                                                      │    │
-│   │   ┌──────────────────────────────────────────────┐   │    │
-│   │   │   CasaOS  (host UI · :81)                    │   │    │
-│   │   └──────────────────────────────────────────────┘   │    │
-│   │                                                      │    │
-│   │   ┌──────────────────────────────────────────────┐   │    │
-│   │   │   Arcane  (Docker stack mgmt · :3552)        │   │    │
-│   │   │                                              │   │    │
-│   │   │  [gitea] [jellyfin] [sonarr] [grafana] …     │   │    │
-│   │   └──────────────────────────────────────────────┘   │    │
-│   └──────────────────────────────────────────────────────┘    │
-│                                                               │
-│       - NVMe 500GB  /              (Proxmox OS)               │
-│       - SSD  1TB    /media/services (service data)            │
-│       - SSD  500GB  /media/backup   (backups)                 │
-└────────────────────────────────────────────────────────────-──┘
+    ┌─────────────────────────────────────────────────────-─────────┐
+    │                     fuyu (Local IP)                           │
+    │                AMD Ryzen 5 5600G · 32 GiB RAM                 │
+    │                                                               │
+    │   ┌──────────────────────────────────────────────────────┐    │
+    │   │               Proxmox VE  (Debian 12)                │    │
+    │   │                                                      │    │
+    │   │   ┌──────────────────────────────────────────────┐   │    │
+    │   │   │   CasaOS  (host UI · :81)                    │   │    │
+    │   │   └──────────────────────────────────────────────┘   │    │
+    │   │                                                      │    │
+    │   │   ┌──────────────────────────────────────────────┐   │    │
+    │   │   │   Arcane  (Docker stack mgmt · :3552)        │   │    │
+    │   │   │                                              │   │    │
+    │   │   │  [gitea] [jellyfin] [sonarr] [grafana] …     │   │    │
+    │   │   └──────────────────────────────────────────────┘   │    │
+    │   └──────────────────────────────────────────────────────┘    │
+    │                                                               │
+    │       - NVMe 500GB  /              (Proxmox OS)               │
+    │       - SSD  1TB    /media/services (service data)            │
+    │       - SSD  500GB  /media/backup   (backups)                 │
+    └────────────────────────────────────────────────────────────-──┘
 
 **fuyu** is the single physical server running **Proxmox VE** on bare metal. **CasaOS** provides a host-level management UI, and **Arcane** manages all Docker Compose stacks. Service data lives on a dedicated 1 TB SSD; backups go to a separate 500 GB SSD and Google Drive.
 
