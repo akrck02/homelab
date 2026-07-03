@@ -6,7 +6,7 @@
 
 <h2 id="architecture-overview">Architecture Overview</h2>
 
-<p>┌─────────────────────────────────────────────────────-─────────┐
+<pre><code>┌─────────────────────────────────────────────────────-─────────┐
 │                     fuyu (Local IP)                           │
 │                AMD Ryzen 5 5600G · 32 GiB RAM                 │
 │                                                               │
@@ -27,7 +27,8 @@
 │       - NVMe 500GB  /              (Proxmox OS)               │
 │       - SSD  1TB    /media/services (service data)            │
 │       - SSD  500GB  /media/backup   (backups)                 │
-└────────────────────────────────────────────────────────────-──┘</p>
+└────────────────────────────────────────────────────────────-──┘
+</code></pre>
 
 <p><strong>fuyu</strong> is the single physical server running <strong>Proxmox VE</strong> on bare metal. <strong>CasaOS</strong> provides a host-level management UI, and <strong>Arcane</strong> manages all Docker Compose stacks. Service data lives on a dedicated 1 TB SSD; backups go to a separate 500 GB SSD and Google Drive.</p>
 
