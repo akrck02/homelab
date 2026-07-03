@@ -11,8 +11,8 @@ jobs:
       - uses: actions/checkout@v3
       - uses: akrck02/papiro-deploy@main
         with:
-          title: "title" # your project title
-          description: "description" # your project description
+          title: "Homelab" # your project title
+          description: "Setting up a homelab for self-hosting." # your project description
           logo: "./logo.svg" # your logo path (only svg for now)
           path: "./docs" # the file with your markdown documents
           isObsidianProject: false # if it is an obsidian project
